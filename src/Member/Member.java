@@ -9,7 +9,7 @@ public class Member {
     private int id;
     private String name;
     private String level;
-    private List<Rental> currentRentals = new ArrayList<>();
+    private List<Rental> rentalHistory = new ArrayList<>();
 
 
     public void setId(int id) {
@@ -46,11 +46,16 @@ public class Member {
         this.level = level;
     }
 
-    public List<Rental> getCurrentRentals() {
-        return currentRentals;
+    public List<Rental> getRentalHistory() {
+        return rentalHistory;
     }
 
     public void addToCurrentRentals(Rental rental) {
-        this.currentRentals.add(rental);
+        this.rentalHistory.add(rental);
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }

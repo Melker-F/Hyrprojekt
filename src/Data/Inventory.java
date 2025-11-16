@@ -1,51 +1,73 @@
 package Data;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
-import Item.Item;
-import Item.Car;
-import Item.Motorcycle;
+import Item.*;
 
 public class Inventory {
-    private HashMap<Integer, InventoryEntry> inventory = new HashMap<>();
+    private Map<Integer, Item> inventory = new HashMap<>();
 
     public Inventory() {
     }
 
+    //Laddar in alla fordon som finns att hyras in i en HashMap
     public void loadDatabase() {
 
-        Item volvo      = new Car(0,4,"v70",true,"Volvo","kombi",4);
-        Item audi       = new Car(1,4,"s8",true,"Audi","sedan",4);
-        Item koenigsegg = new Car(2,4,"jesko",true,"Koenigsegg","supersport",2);
-        Item toyota     = new Car(3,4,"gr yaris",true,"Toyota","hot hatch",4);
-        Item honda      = new Car(4,4,"nsx",true,"Honda","sport",2);
+        Item car1   = new Car(0,4,"v70",true,"Volvo",500,"kombi",4);
+        Item car2   = new Car(1,4,"v70",true,"Volvo",500,"kombi",4);
+        Item car3   = new Car(2,4,"v70",true,"Volvo",500,"kombi",4);
+        Item car4   = new Car(3,4,"s8",true,"Audi",600,"sedan",4);
+        Item car5   = new Car(4,4,"s8",true,"Audi",600,"sedan",4);
+        Item car6   = new Car(5,4,"jesko",true,"Koenigsegg",900,"supersport",2);
+        Item car7   = new Car(6,4,"gr yaris",true,"Toyota",500,"hot hatch",4);
+        Item car8   = new Car(7,4,"gr yaris",true,"Toyota",500,"hot hatch",4);
+        Item car9   = new Car(8,4,"nsx",true,"Honda",700,"sport",2);
+        Item car10   = new Car(9,4,"nsx",true,"Honda",700,"sport",2);
 
-        Item bmw        = new Motorcycle(5,2,"s1000rr",true,"BMW",true,4);
-        Item harley     = new Motorcycle(6,3,"tri glide",true,"Harley",true,2);
-        Item kawasaki   = new Motorcycle(7,2,"ninja h2r",true,"Kawasaki",false,4);
-        Item aprilia    = new Motorcycle(8,2,"tuono v4x",true,"Aprilia",false,4);
-        Item husqvarna  = new Motorcycle(9,2,"norden 901",true,"Husqvarna",true,2);
+        Item bike1  = new Motorcycle(10,2,"s1000rr",true,"BMW",400,true,4);
+        Item bike2  = new Motorcycle(11,2,"s1000rr",true,"BMW",400,true,4);
+        Item bike3  = new Motorcycle(12,3,"tri glide",true,"Harley",450,true,2);
+        Item bike4  = new Motorcycle(13,3,"tri glide",true,"Harley",450,true,2);
+        Item bike5  = new Motorcycle(14,2,"ninja h2r",true,"Kawasaki",600,false,4);
+        Item bike6  = new Motorcycle(15,2,"tuono v4x",true,"Aprilia",650,false,4);
+        Item bike7  = new Motorcycle(16,2,"norden 901",true,"Husqvarna",300,true,2);
+        Item bike8  = new Motorcycle(17,2,"norden 901",true,"Husqvarna",300,true,2);
 
-        inventory.put(volvo.getId(),     new InventoryEntry(volvo,4));
-        inventory.put(audi.getId(),      new InventoryEntry(audi,3));
-        inventory.put(koenigsegg.getId(),new InventoryEntry(koenigsegg,1));
-        inventory.put(toyota.getId(),    new InventoryEntry(toyota,4));
-        inventory.put(honda.getId(),     new InventoryEntry(honda,2));
+        inventory.put(car1.getId(),  car1);
+        inventory.put(car2.getId(),  car2);
+        inventory.put(car3.getId(),  car3);
+        inventory.put(car4.getId(),  car4);
+        inventory.put(car5.getId(),  car5);
+        inventory.put(car6.getId(),  car6);
+        inventory.put(car7.getId(),  car7);
+        inventory.put(car8.getId(),  car8);
+        inventory.put(car9.getId(),  car9);
+        inventory.put(car10.getId(), car10);
 
-        inventory.put(bmw.getId(),       new InventoryEntry(bmw,2));
-        inventory.put(harley.getId(),    new InventoryEntry(harley,3));
-        inventory.put(kawasaki.getId(),  new InventoryEntry(kawasaki, 2));
-        inventory.put(aprilia.getId(),   new InventoryEntry(aprilia,3));
-        inventory.put(husqvarna.getId(), new InventoryEntry(husqvarna,5));
+        inventory.put(bike1.getId(), bike1);
+        inventory.put(bike2.getId(), bike2);
+        inventory.put(bike3.getId(), bike3);
+        inventory.put(bike4.getId(), bike4);
+        inventory.put(bike5.getId(), bike5);
+        inventory.put(bike6.getId(), bike6);
+        inventory.put(bike7.getId(), bike7);
+        inventory.put(bike8.getId(), bike8);
     }
-    public HashMap<Integer, InventoryEntry> getInventory() {
-        return this.inventory;
+    //Hur saker hämtas ur listan
+    public Collection<Item> getAllItems() {
+        return inventory.values();
+    }
+    //Hittar saker baserat på ID
+    public Item findById(Integer id) {
+        return inventory.get(id);
     }
 
     @Override
     public String toString(){
         String text = "";
-        for(InventoryEntry i:this.inventory.values()){
+        for(Item i:this.inventory.values()){
             text += i.toString();
         }
         return text;

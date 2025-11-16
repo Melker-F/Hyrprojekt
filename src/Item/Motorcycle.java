@@ -12,7 +12,7 @@ public class Motorcycle extends Item{
 
     public void setCylinders(int cylinders) { this.cylinders = cylinders; }
 
-    public Motorcycle(int id, int wheels, String model, boolean available, String name, boolean isStreetLegal, int cylinders) {
-        super(id, wheels, model, available, name);
+    public Motorcycle(int id, int wheels, String model, boolean available, String name, int price, boolean isStreetLegal, int cylinders) {
+        super(id, wheels, model, available, name, price);
     }
 }

@@ -1,13 +1,14 @@
 package Policy;
 
+import Item.Item;
+
 public class PremiumPolicy implements PricePolicy {
-    private static final double price = 600;
     private static final double discount = 0.85;
 
     @Override
-    public double CalculatePrice(int days) {
+    public double calculatePrice(int days, Item sak) {
         double cost;
-        cost = (price * discount) * days;
+        cost = (sak.getPrice() * discount) * days;
         return cost;
     }
 }

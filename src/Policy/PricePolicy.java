@@ -1,6 +1,7 @@
 package Policy;
+import Item.Item;
 
 public interface PricePolicy {
-    public double CalculatePrice(int days);
+    public double calculatePrice(int days, Item sak);
 
 }

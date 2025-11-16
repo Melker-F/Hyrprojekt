@@ -6,6 +6,7 @@ public abstract class Item {
     private String model;
     private boolean available;
     private String name;
+    private int price;
 
     public int getId() { return id; }
 
@@ -27,16 +28,21 @@ public abstract class Item {
 
     public String getName() { return name; }
 
-    public Item(int id, int wheels, String model, boolean available, String name){
+    public void setPrice(int price) { this.price = price; }
+
+    public int getPrice() { return price; }
+
+    public Item(int id, int wheels, String model, boolean available, String name, int price){
         this.id = id;
         this.wheels = wheels;
         this.model = model;
         this.available = available;
         this.name = name;
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return name;
+        return " " + getId() + ": " + getName() + " - " + getModel() + " " + (available ? "":"Inte tillgänglig");
     }
 }

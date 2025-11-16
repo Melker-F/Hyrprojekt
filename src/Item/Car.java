@@ -12,7 +12,7 @@ public class Car extends Item {
 
     public void setSeats(int seats) { this.seats = seats; }
 
-    public Car (int id, int wheels, String model, boolean available, String name, String type, int seats) {
-        super( id, wheels, model, available, name );
+    public Car (int id, int wheels, String model, boolean available, String name, int price, String type, int seats) {
+        super( id, wheels, model, available, name, price );
     }
 }
